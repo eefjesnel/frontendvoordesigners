@@ -1,5 +1,5 @@
 # Procesverslag
-**Auteur:** -jouw naam-
+**Auteur:** -Eefje Snel-
 
 **De opdrachten:** [opdracht 1](opdracht1/index.html) en [opdracht 2](opdracht2/index.html)
 
@@ -14,9 +14,8 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
 ## Bronnenlijst
-  1. -bron 1-
-  2. -bron 2-
-  3. -...-
+  1. developer mazilla
+  2. DLO
 
 
 
@@ -27,15 +26,14 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je storyboard:
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="storyboard voor opdracht 1">
+  <img src="readme-images/storyboard-autodisk.png" width="375px" alt="storyboard voor opdracht 1">
 
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Ik vind het super leuk om gave dingen met css te maken. Ik wil graag ingewilde keyframes onder de knie krijgen.
+  - Ik ben al vrij bekend met css maar sommige dingen zoals de mogelijkheden met borderradius en gradients wil ik verder ontdekken.
+  - We gaan werken met before en afters, dit ken ik wel al, maar ik wil er graag beter mee kunnen werken.
  
 </details>
 
@@ -48,19 +46,25 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitomst opdracht 1">
+   De spans gaan bewegen samen en botsen tegen elkaar aan. Verder draait er een wiel met band om de Auto na te bootsen.
+
+  <img src="readme-images/uitkomst-animatie.png" width="375px" alt="uitomst opdracht 1">
+ 
 
 
   ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatje(s)
+  Wat er goed ging was vooral de keyframes en animaties. Dit was af en toe een beetje puzzelen, vooral met de persentages.
+  Ik wilde ook meer leren over de mogelijkheden van de gradients, dit is goed gelukt met het voorbeeld op DLO. 
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
+  <img src="readme-images/ging-goed.png" width="375px" alt="top">
 
 
   ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatje(s)
+ Wat wat minder goed ging was het aanroepen van animaties. 
+ Ik kreeg het niet voor elkaar om alle elementen die dezelfde animatie kregen in 1 selector te zetten.
+ Dit is iets waar ik graag nog naar wil kijken voor opdracht 2.
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
+  <img src="readme-images/moeilijk.png" width="375px" alt="bummer">
 </details>
 
 
