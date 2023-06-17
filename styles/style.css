@@ -17,7 +17,6 @@ button:not(:disabled), summary {
 /*********************/
 
 :root {
-	/* startje */
 	--color-text:#eee;
 	--color-background:#FA6400;
 	--band-animatie: silver;
@@ -31,6 +30,18 @@ button:not(:disabled), summary {
 		--band-animatie: #CECECE;
 		--color-band: #5F5F5F;
 	}
+}
+
+@font-face {
+	font-family: "Gilroy-bold";
+	src: url("../fonts/Gilroy-ExtraBold_933e24b9.woff2");
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Gilroy-light";
+	src: url("../fonts/Gilroy-Regular_08bbb75e.woff2");
+	font-style: normal;
 }
 
 /****************/
@@ -54,24 +65,24 @@ h1{
 }
 
 span{
-	font-family: 'Gilroy-Bold', sans-serif;
 	position: relative;
+	font-family: "Gilroy-bold";
 }
 
 span:nth-of-type(5), span:nth-of-type(6), span:nth-of-type(7), span:nth-of-type(8){
-	font-family: 'Gilroy-Light', sans-serif;
+	font-family: "Gilroy-light";
 }
 
 span:nth-of-type(5)::before, span:nth-of-type(5)::after, span:nth-of-type(7)::before, span:nth-of-type(7)::after, span:nth-of-type(8)::before, span:nth-of-type(8)::after{
 	content: "";
 	position: absolute;
-	width: .12em;
-	height: .12em;
+	width: .13em;
+	height: .13em;
 	border-radius: 50%;
 }
 
 /****************/
-/* Span 1234 */
+/* Span 1234 auto */
 /****************/
 
 @keyframes auto{
@@ -82,11 +93,11 @@ span:nth-of-type(5)::before, span:nth-of-type(5)::after, span:nth-of-type(7)::be
 		left: 0;
 	}
 	5%{
-		left: .3em;
+		left: .2em;
 		transform: rotate(90deg);
 	}
 	7%{
-		left: .3em;
+		left: .2em;
 		transform: rotate(90deg);
 	}
 	10%{
@@ -122,16 +133,8 @@ span:nth-of-type(5)::before, span:nth-of-type(5)::after, span:nth-of-type(7)::be
 }
 
 h1:hover span:nth-of-type(-n + 3){
-	animation: auto 2s linear 0s 1;
+	animation: auto 5s linear 0s 1;
 }
-
-/* h1:hover span:nth-of-type(2){
-	animation: auto 2s linear 0s 1;
-}
-
-h1:hover span:nth-of-type(3){
-	animation: auto 2s linear 0s 1;
-} */
 
 /****************/
 /* Span 4 */
@@ -218,15 +221,15 @@ span:nth-of-type(4)::before{
 }
 
 h1:hover span:nth-of-type(4){
-	animation: band 2s linear 1;
+	animation: band 5s linear 1;
 }
 
 h1:hover span:nth-of-type(4)::before{
-	animation: wiel 2s ease-in-out .2s 1;
+	animation: wiel 5s ease-in-out .2s 1;
 }
 
 h1:hover span:nth-of-type(4)::after{
-	animation: wiel 2s ease-in-out .2s 1;
+	animation: wiel 5s ease-in-out .2s 1;
 }
 
 span:nth-of-type(4)::after{
@@ -246,13 +249,13 @@ span:nth-of-type(4)::after{
 /****************/
 
 span:nth-of-type(5)::after{
-	top: .4em;
+	top: .26em;
 	left: .125em;
 	background-color: var(--color-text);
 }
 
 span:nth-of-type(5)::before{
-	top: .388em;
+	top: .25em;
 	left: .18em;
 	background-color: var(--color-background);
 }
@@ -262,13 +265,13 @@ span:nth-of-type(5)::before{
 /****************/
 
 span:nth-of-type(7)::after{
-	top: .84em;
+	top: .68em;
 	left: .23em;
 	background-color: var(--color-text);
 }
 
 span:nth-of-type(7)::before{
-	top: .842em;
+	top: .682em;
 	left: .19em;
 	background-color: var(--color-background);
 }
@@ -278,13 +281,13 @@ span:nth-of-type(7)::before{
 /****************/
 
 span:nth-of-type(8)::after{
-	top: .36em;
+	top: .2em;
 	left: .37em;
 	background-color: var(--color-text);
 }
 
 span:nth-of-type(8)::before{
-	top: .86em;
+	top: .7em;
 	left: .378em;
 	background-color: var(--color-text);
 }
@@ -332,20 +335,8 @@ span:nth-of-type(8)::before{
 	}
 }
 
-h1:hover span:nth-of-type(5){
-	animation: disk 2s linear .1s 1;
-}
-
-h1:hover span:nth-of-type(6){
-	animation: disk 2s linear 0.1s 1;
-}
-
-h1:hover span:nth-of-type(7){
-	animation: disk 2s linear .1s 1;
-}
-
-h1:hover span:nth-of-type(8){
-	animation: disk 2s linear .1s 1;
+h1:hover span:nth-of-type(n + 5){
+	animation: disk 5s linear .1s 1;
 }
 
 /****************/
