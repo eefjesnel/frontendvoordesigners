@@ -43,8 +43,9 @@ button:not(:disabled), summary {
 
 :root {
 	/* startje */
-	--zwart:#111;
-	--background:#eee;
+	--donker:#111;
+	--licht: white;
+	--achtergrond:#eee;
 	--accent: #F3B103;
 	--accent2: #4554B4;
 }
@@ -57,16 +58,32 @@ button:not(:disabled), summary {
 /* JOUW STYLING */
 /****************/
 
+/* algemene styling */
+
 body {
-  background-color:var(--background);
+  background-color:var(--achtergrond);
 	margin: 0;
 	font-family: "karla";
+}
+
+section{
+	display: flex;
+	justify-content: center;
+}
+
+button{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--donker);
+	color: white;
+	font-family: "karla-light";
+	cursor: pointer;
 }
 
 /* header styling. De header heeft flex om het logo in het midden te plaatsen. */
 
 header{
-	background-color: black;
+	background-color: var(--donker);
 	display: flex;
 	justify-content: center;
 	margin-bottom: 2em;
@@ -76,17 +93,18 @@ header img{
 	width: 6em;
 }
 
-/* kledingkast section. Grid gebruikt en met flex het grid in het midden geplaatst. */
+/* kledingkast section. Grid gebruikt en met flex het grid in het midden geplaatst.
+Zelf een slider gemaakt. Dit heb ik gekopieerd uit code dat ik eerder had geschreven en wat aangepast. */
 
 section:nth-of-type(1){
-	display:flex;
 	flex-direction: column;
 	align-items: center;
 }
 
 /* Van wie is de kledingkast. Je kan het invullen via een form field. */
 
-section:nth-of-type(1) div{
+section:nth-of-type(2n -1) div{
+	/* https://www.w3schools.com/cssref/sel_nth-of-type.php en https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child  selector 2n -1 komt hier vandaan. */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -105,71 +123,121 @@ section:nth-of-type(1) div form {
 
 /* De states van het textfield */
 
-section:nth-of-type(1) div input:nth-of-type(1){
+section:nth-of-type(1) div input{
 	margin-left: 1em;
-	border: 1px solid var(--zwart);
+	border: 1px solid var(--donker);
 	border-radius: 5px;
 	font-family: "karla";
 }
 
-section:nth-of-type(1) div input:nth-of-type(1):hover{
+section:nth-of-type(1) div input:hover{
 	border: 1px solid var(--accent);
 	transition: ease-in-out;
 }
 
-section:nth-of-type(1) div input:nth-of-type(1):active{
+section:nth-of-type(1) div input:active{
 	border: 1px solid var(--accent);
 }
 
-section:nth-of-type(1) div input:nth-of-type(1):focus{
+section:nth-of-type(1) div input:focus{
 	border: 1px double var(--accent2);
 }
 
-/* De states van het submitfield */
+/* De states van de submit button om de naam te versturen*/
 
-section:nth-of-type(1) div input:nth-of-type(2){
-	margin-left: 1em;
-	border: none;
-	border-radius: 5px;
-	background-color: var(--zwart);
-	color: white;
-	font-family: "karla-light";
+section:nth-of-type(1) button{
 	padding: 0 1em;
-	cursor: pointer;
+	font-size: .8em;
+	margin-left: 1em;
 }
 
-section:nth-of-type(1) div input:nth-of-type(2):hover{
+section:nth-of-type(1) div form button:hover{
 	background-color: var(--accent);
 	transition: ease-in-out;
 }
 
-section:nth-of-type(1) div input:nth-of-type(2):active{
+section:nth-of-type(1) div form button:active{
 	background-color: var(--accent);
 }
 
-section:nth-of-type(1) div input:nth-of-type(2):focus{
+section:nth-of-type(1) div form button:focus{
 	border: 1px double var(--accent2);
 }
 
-/* list kledingkast styling */
+/* list kledingkast styling: de lijst met alle kledingstukken waaruit de gebruiker kleding kan droppen in de outfit lijst. */
 
 section:nth-of-type(1) ul{
 	margin-top: 1em;
 	padding: 5vw;
 	list-style-type: none;
 	display: grid;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(5, 1fr);
-	grid-column-gap: 1em;
 	grid-row-gap: 1em;
+	/* https://codepen.io/thiagopiacentini/pen/YzpbdLr  grid clamp zodat het mooi in elkaar overloopt. */
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: clamp(1rem, 3vw, 10rem);
+  max-width: 100%
 }
 
-/* list item styling */
+/* Section 2 styling buttons vorige en volgende */
+
+section:nth-of-type(2) button{
+	padding: .3em 0;
+	width: 7em;
+	margin: 0;
+}
+
+section:nth-of-type(2) button:nth-of-type(2){
+	margin-left: 1em;
+}
+
+/* section 3 list outfit styling */
+
+section:nth-of-type(3){
+	align-items: center;
+	flex-direction: column;
+	margin-top: 2.5em
+}
+
+section:nth-of-type(3) ul{
+	background-color: white;
+	height: 14em;
+	width: 90vw;
+	border-radius: .5em;
+	display: flex;
+	align-items: center;
+	padding: 1em;
+	border: 1px grey dashed;
+	list-style-type: none;
+	overflow: scroll;
+	gap: 20px;
+}
+
+section:nth-of-type(3) ul div p{
+	/* https://www.w3schools.com/cssref/pr_text_white-space.php */
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+/* WAAROM WERKT DIT NIET???? */
+main section:nth-of-type(2) ul:empty:after{
+	content: 'sleep items in dit vak en maak jouw outfit';
+	font-size: .6em;
+	color: grey;
+}
+/* WAAROM WERKT DIT NIET???? */
+
+/* algemene list item styling. Geld voor alle list items */
 
 section ul li{
 	padding: 0;
 	margin: 0;
+}
+section:nth-of-type(1) ul .kledingstuk{
+	display: none;
+}
+
+section:nth-of-type(1) ul .toonKledingstuk{
+	display: block;
 }
 
 section ul li img{
@@ -186,44 +254,7 @@ section ul li div p{
 	margin-top: 0;
 }
 
-/* list outfit styling */
-
-section:nth-of-type(n+2){
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-}
-
-section:nth-of-type(n+2) ul{
-	background-color: white;
-	height: 14em;
-	width: 90vw;
-	border-radius: .5em;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0;
-	border: 1px grey dashed;
-	list-style-type: none;
-}
-
-section:nth-of-type(n+2) ul div{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-/* WAAROM WERKT DIT NIET???? */
-
-main section:nth-of-type(2) ul:empty:after{
-	content: 'sleep items in dit vak en maak jouw outfit';
-	font-size: .6em;
-	color: grey;
-}
-
-/* WAAROM WERKT DIT NIET???? */
-
-/* cursor states voor list items */
+/* cursor states voor alle list items */
 
 li {
 	cursor: grab;
@@ -233,7 +264,58 @@ li.sortable-ghost {
 	cursor:grabbing;
 }
 
-/* list remove styling.
-Dit list is bedoelt om items uit de outfit lijst te halen.*/
+/* Section 4 styling button */
+
+section:nth-of-type(4) button:nth-of-type(1){
+	background-color: var(--accent);
+	padding: .5em 1em;
+	font-size: 1.2em;
+}
+
+section:nth-of-type(4) button:nth-of-type(2){
+	padding: .5em 1em;
+
+}
 
 
+
+
+
+
+/* MEDIA QUERY DESKTOP */
+@media only screen and (min-width: 600px) {
+  section:nth-of-type(1) ul .kledingstuk{
+		display: block;
+	}
+	.sliderKnoppen{
+		display: none;
+	}
+
+	section:nth-of-type(2) button{
+		display: none;
+	}
+
+}
+
+/* MEDIA QUERY DESKTOP */
+@media only screen and (max-width: 600px) {
+	section:first-of-type ul li img{
+		width: 200px;
+		height: auto;
+	}
+
+	section:first-of-type ul li p{
+		font-size: 1em;
+	}
+
+	section:first-of-type ul{
+		height: 250px
+	}
+
+}
+
+
+.hide{
+	/* https://www.w3schools.com/css/css_important.asp */
+	display: none !important;
+}
